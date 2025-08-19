@@ -8,6 +8,10 @@ Usage:
 import argparse
 import math
 import os
+import wandb
+os.environ["WANDB_API_KEY"] = 'KEY'
+os.environ["WANDB_MODE"] = "offline"
+import os
 import random
 import sys
 import time
