@@ -32,7 +32,7 @@ from utils.torch_utils import torch_distributed_zero_first
 
 # Parameters
 HELP_URL = 'https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data'
-IMG_FORMATS = ['bmp', 'jpg', 'jpeg', 'JPEG', 'png', 'tif', 'tiff', 'dng', 'webp', 'mpo']  # acceptable image suffixes
+IMG_FORMATS = ['bmp', 'jpg', 'jpeg', 'JPEG', '.JPG', 'png', 'tif', 'tiff', 'dng', 'webp', 'mpo']  # acceptable image suffixes
 VID_FORMATS = ['mov', 'avi', 'mp4', 'mpg', 'mpeg', 'm4v', 'wmv', 'mkv']  # acceptable video suffixes
 WORLD_SIZE = int(os.getenv('WORLD_SIZE', 1))  # DPP
 
@@ -930,6 +930,7 @@ def verify_image_label(args):
                 l = np.zeros((0, 5), dtype=np.float32)
         else:
             nm = 1  # label missing
+            print("missing:", lb_file)
             l = np.zeros((0, 5), dtype=np.float32)
         return im_file, l, shape, segments, nm, nf, ne, nc, msg
     except Exception as e:
