@@ -1,0 +1,5 @@
+train: data/images/hand_detection_dataset/to_coco/train2017
+val: data/images/hand_detection_dataset/to_coco/val2017
+
+nc: 1
+names: ['hand']
